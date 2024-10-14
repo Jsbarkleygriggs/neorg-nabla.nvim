@@ -96,11 +96,11 @@ local srow, scol, erow, ecol = ts_utils.get_node_range(math_node)
 @get_text_in_range+=
 local lines = vim.api.nvim_buf_get_text(0, srow, scol, erow, ecol, {})
 line = table.concat(lines, " ")
-line = line:gsub("%$", "")
+line = line:gsub("%$$", "")
 line = line:gsub("\\%[", "")
 line = line:gsub("\\%]", "")
 line = line:gsub("^\\%(", "")
-line = line:gsub("\\%)$", "")
+line = line:gsub("\\%)$$", "")
 line = vim.trim(line)
 if line == "" then
     return
